@@ -55,7 +55,6 @@ struct Solver<'a, T: Strategy> {
 
 impl<'a, T: Strategy> Solver<'a, T> {
     pub fn new(bandit: &'a Bandit, strategy: T) -> Self {
-        let count = vec![0; bandit.k];
         Solver {
             bandit,
             strategy,
@@ -71,7 +70,7 @@ impl<'a, T: Strategy> Solver<'a, T> {
     }
 
     fn run(&mut self, num_step: usize) {
-        for i in 0..num_step {
+        for _ in 0..num_step {
             let k = self.strategy.run_one_step();
             self.actions.push(k);
             self.update_regret(k as usize);

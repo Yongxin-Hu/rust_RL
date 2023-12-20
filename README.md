@@ -1,2 +1,2 @@
-# rust_RL
-reinforcement learning algorithm with Rust
+# Reinforcement learning with Rust
+Reinforcement learning algorithm with Rust
